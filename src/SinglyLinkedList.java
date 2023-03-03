@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public class SinglyLinkedList {
@@ -27,16 +28,28 @@ public class SinglyLinkedList {
         third.next=fouth;
 
         obj.retrieveListNode();
+        obj.findTheLenght();
+    }
+
+    private void findTheLenght() {
+        int count=0;
+        ListNode current=head;
+        while(current!=null)
+        {
+            count++;
+            current=current.next;
+        }
+        System.out.println("Lenght of singly linked list: "+count);
     }
 
     private void retrieveListNode() {
 
         ListNode first=head;
-        while(first.next!=null)
+        while(first!=null)
         {
             System.out.println("Node value: "+first.data);
             first=first.next;
         }
-        System.out.println("Node value: "+first.data);
+
     }
 }
