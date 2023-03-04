@@ -27,8 +27,64 @@ public class SinglyLinkedList {
         second.next=third;
         third.next=fouth;
 
-        obj.retrieveListNode();
+
+        obj.inserNodeAtBegin();
+
         obj.findTheLenght();
+        obj.insetNodeAtEnd();
+        obj.InsertGivenPosition(2);
+        obj.retrieveListNode();
+
+    }
+
+    private void InsertGivenPosition(int position) {
+
+        ListNode newNode=new ListNode(28);
+        if(position==1)
+        {
+            newNode.next=head;
+            head=newNode;
+            return;
+        }
+        int count=1;
+        ListNode previous=head;
+        while(count<position-1)
+        {
+            previous=previous.next;
+            count++;
+        }
+        ListNode current=previous.next;
+        previous.next=newNode;
+        newNode.next=current;
+    }
+
+    private void insetNodeAtEnd() {
+
+        ListNode last = new ListNode(16);
+        if(head==null)
+        {
+            head=last;
+            return;
+        }
+
+        ListNode current=head;
+        while(current.next!=null)
+        {
+            current=current.next;
+        }
+        current.next=last;
+
+
+
+    }
+
+    private void inserNodeAtBegin() {
+
+        // Insert node at the begining of the singly linked list.
+
+        ListNode newNode=new ListNode(15);
+        newNode.next=head;
+        head=newNode;
     }
 
     private void findTheLenght() {
