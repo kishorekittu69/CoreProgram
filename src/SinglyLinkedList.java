@@ -34,7 +34,42 @@ public class SinglyLinkedList {
         obj.insetNodeAtEnd();
         obj.InsertGivenPosition(2);
         obj.retrieveListNode();
+        obj.reverseSinglyLinkedList();
+        obj.retrieveListNode();
+        obj.searchElementInListNode(101);
 
+
+    }
+
+    private void reverseSinglyLinkedList() {
+        System.out.println("Reversing list of nodes");
+        ListNode current=head;
+        ListNode next=null;
+        ListNode previous=null;
+        while(current!=null)
+        {
+            next=current.next;
+            current.next=previous;
+            previous=current;
+            current=next;
+
+        }
+        head=previous;
+    }
+
+    private void searchElementInListNode(int i) {
+
+        ListNode current=head;
+        while(current!=null)
+        {
+            if(current.data==i)
+            {
+                System.out.println("Found given element");
+                return;
+            }
+            current=current.next;
+        }
+        System.out.println("Not found given element");
     }
 
     private void InsertGivenPosition(int position) {
