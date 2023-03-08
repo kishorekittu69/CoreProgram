@@ -37,8 +37,39 @@ public class SinglyLinkedList {
         obj.reverseSinglyLinkedList();
         obj.retrieveListNode();
         obj.searchElementInListNode(101);
+        obj.findMiddleNode();
+        obj.findNthNodeFromEndOfList(3);
 
 
+    }
+
+    private void findNthNodeFromEndOfList(int i) {
+        ListNode refPt=head;
+        ListNode mainPt=head;
+        int count=0;
+        while(count<i)
+        {
+            refPt=refPt.next;
+            count++;
+        }
+        while(refPt!=null)
+        {
+            refPt=refPt.next;
+            mainPt=mainPt.next;
+        }
+        System.out.println(i+" node value is : "+mainPt.data);
+    }
+
+    private void findMiddleNode() {
+
+        ListNode slowPtr=head;
+        ListNode fastPtr=head;
+        while(fastPtr!=null && fastPtr.next!=null)
+        {
+            slowPtr=slowPtr.next;
+            fastPtr=fastPtr.next.next;
+        }
+        System.out.println("Middle node value is "+slowPtr.data);
     }
 
     private void reverseSinglyLinkedList() {
